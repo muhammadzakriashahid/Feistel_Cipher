@@ -3,11 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <title>Feistel Cipher Explanation</title>
+    
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    
     <button id="languageButton" onclick="toggleLanguage()">Switch to German</button>
 
     <div id="english">
@@ -18,8 +21,11 @@
         <h2>Step-by-Step Explanation</h2>
 
         <div class="step">
+            
             <h3>1. Split the Message</h3>
+            
             <p>First, take your message and split it into two parts. Let's use a simple example message: "HI" (we'll convert it to binary to make it easier to understand).</p>
+            
             <pre>
 "H" in binary: 01001000
 "I" in binary: 01001001
@@ -32,26 +38,34 @@ Right (R) = 01001001</pre>
         </div>
 
         <div class="step">
+            
             <h3>2. Prepare for Rounds</h3>
             <p>We will use a key to scramble the message. Let's say our key is a simple binary number: 10101010.</p>
         </div>
 
         <div class="step">
+            
             <h3>3. Start the First Round</h3>
+            
             <p>Round 1:</p>
+            
             <ul>
                 <li>Take the Right half (R): 01001001</li>
                 <li>Combine it with the key using a special function (let's just XOR them for simplicity):</li>
             </ul>
+            
             <pre>
 R = 01001001
 Key = 10101010
 XOR Result = 11100011</pre>
+            
             <p>Now, XOR this result with the Left half (L):</p>
+            
             <pre>
 L = 01001000
 XOR Result = 11100011
 New Right (R) = 10101011</pre>
+            
             <ul>
                 <li>Swap the halves:
                     <ul>
@@ -60,25 +74,34 @@ New Right (R) = 10101011</pre>
                     </ul>
                 </li>
             </ul>
+            
         </div>
 
         <div class="step">
+            
             <h3>4. Repeat for More Rounds</h3>
+            
             <p>Let's do one more round to make it secure.</p>
+            
             <p>Round 2:</p>
+            
             <ul>
                 <li>Take the new Right half (R): 10101011</li>
                 <li>Combine it with the key using XOR:</li>
             </ul>
+            
             <pre>
 R = 10101011
 Key = 10101010
 XOR Result = 00000001</pre>
+            
             <p>Now, XOR this result with the new Left half (L):</p>
+            
             <pre>
 L = 01001001
 XOR Result = 00000001
 New Right (R) = 01001000</pre>
+            
             <ul>
                 <li>Swap the halves again:
                     <ul>
@@ -87,31 +110,44 @@ New Right (R) = 01001000</pre>
                     </ul>
                 </li>
             </ul>
+            
         </div>
 
         <div class="step">
+            
             <h3>5. Finish Up</h3>
+            
             <p>After the rounds, put the final Left and Right halves together. This is your scrambled message (ciphertext):</p>
+            
             <pre>Ciphertext: 10101011 01001000</pre>
         </div>
 
         <div class="step">
+            
             <h3>6. Decryption</h3>
+            
             <p>To decrypt, you do the same steps in reverse order using the same key. This will give you back the original message.</p>
+       
         </div>
 
         <div class="summary">
+            
             <h2>Summary</h2>
+            
             <ul>
                 <li>Message: "HI" (01001000 01001001)</li>
                 <li>Key: 10101010</li>
                 <li>Ciphertext after 2 rounds: 10101011 01001000</li>
             </ul>
+            
             <p>The Feistel Cipher is like a series of magic tricks that mix up your message using a key. Only someone with the same key can reverse the tricks and read the original message.</p>
+            
         </div>
+        
     </div>
 
     <div id="german">
+        
         <h1>Was ist eine Feistel-Chiffre?</h1>
 
         <p>Stell dir vor, du hast eine geheime Nachricht. Du willst sie vor anderen geheim halten. Die Feistel-Chiffre ist wie ein Zaubertrick. Sie mischt deine Nachricht so, dass nur jemand mit dem richtigen Schlüssel sie wieder lesen kann.</p>
@@ -119,8 +155,11 @@ New Right (R) = 01001000</pre>
         <h2>Erklärung Schritt für Schritt</h2>
 
         <div class="step">
+            
             <h3>1. Teile die Nachricht</h3>
+            
             <p>Nimm zuerst deine Nachricht und teile sie in zwei Hälften. Wir nehmen als Beispiel "HI" (wir machen daraus Zahlen, damit es einfacher zu verstehen ist).</p>
+            
             <pre>
 "H" als Zahlen: 01001000
 "I" als Zahlen: 01001001
@@ -130,29 +169,40 @@ Unsere Nachricht als Zahlen ist also: 01001000 01001001
 Teile sie in zwei Hälften:
 Links (L) = 01001000
 Rechts (R) = 01001001</pre>
+        
         </div>
 
         <div class="step">
+            
             <h3>2. Bereite die Runden vor</h3>
+            
             <p>Wir brauchen einen Schlüssel, um die Nachricht zu mischen. Unser Schlüssel ist einfach: 10101010.</p>
+        
         </div>
 
         <div class="step">
+            
             <h3>3. Starte die erste Runde</h3>
+            
             <p>Runde 1:</p>
+           
             <ul>
                 <li>Nimm die rechte Hälfte (R): 01001001</li>
                 <li>Mische sie mit dem Schlüssel (wir benutzen dafür XOR):</li>
             </ul>
+           
             <pre>
 R = 01001001
 Schlüssel = 10101010
 Ergebnis = 11100011</pre>
+            
             <p>Jetzt mische dieses Ergebnis mit der linken Hälfte (L):</p>
+           
             <pre>
 L = 01001000
 Ergebnis = 11100011
 Neues Rechts (R) = 10101011</pre>
+           
             <ul>
                 <li>Tausche die Hälften:
                     <ul>
@@ -161,25 +211,35 @@ Neues Rechts (R) = 10101011</pre>
                     </ul>
                 </li>
             </ul>
+        
         </div>
 
         <div class="step">
+            
             <h3>4. Mache noch eine Runde</h3>
+            
             <p>Wir machen noch eine Runde, damit es sicherer ist.</p>
+           
             <p>Runde 2:</p>
+           
             <ul>
                 <li>Nimm die neue rechte Hälfte (R): 10101011</li>
                 <li>Mische sie mit dem Schlüssel:</li>
+           
             </ul>
+            
             <pre>
 R = 10101011
 Schlüssel = 10101010
 Ergebnis = 00000001</pre>
+           
             <p>Jetzt mische dieses Ergebnis mit der neuen linken Hälfte (L):</p>
+            
             <pre>
 L = 01001001
 Ergebnis = 00000001
 Neues Rechts (R) = 01001000</pre>
+            
             <ul>
                 <li>Tausche die Hälften wieder:
                     <ul>
@@ -188,29 +248,44 @@ Neues Rechts (R) = 01001000</pre>
                     </ul>
                 </li>
             </ul>
+        
         </div>
 
         <div class="step">
+            
             <h3>5. Fertig</h3>
+            
             <p>Nach den Runden fügst du die letzten linken und rechten Hälften zusammen. Das ist deine gemischte Nachricht:</p>
+            
             <pre>Gemischte Nachricht: 10101011 01001000</pre>
+       
         </div>
 
         <div class="step">
+           
             <h3>6. Entschlüsseln</h3>
+           
             <p>Um die Nachricht wieder zu lesen, machst du alles rückwärts mit dem gleichen Schlüssel. So bekommst du die ursprüngliche Nachricht zurück.</p>
+      
         </div>
 
         <div class="summary">
+          
             <h2>Zusammenfassung</h2>
+          
             <ul>
                 <li>Nachricht: "HI" (01001000 01001001)</li>
                 <li>Schlüssel: 10101010</li>
                 <li>Gemischte Nachricht nach 2 Runden: 10101011 01001000</li>
             </ul>
+           
             <p>Die Feistel-Chiffre ist wie eine Reihe von Zaubertricks. Sie mischt deine Nachricht mit einem Schlüssel. Nur jemand mit dem gleichen Schlüssel kann die Tricks rückgängig machen und deine Nachricht lesen.</p>
+       
         </div>
+    
     </div>
+    
     <script src="script.js"></script>
+
 </body>
 </html>
